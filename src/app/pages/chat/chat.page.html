@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-button slot="end" (click)="salir()">
+      <ion-icon name='log-out'></ion-icon>
+    </ion-button>
+    <ion-title>Chat-Ionic</ion-title>
+    <small>{{mailLocal}}</small>
+  </ion-toolbar>
+</ion-header>
+    <ion-searchbar 
+        placeholder="Filtro" [(ngModel)]="buscar" 
+        showCancelButton="focus" animated>
+    </ion-searchbar>
+<ion-content class="ion-padding" #mycontent>
+     <ion-row  *ngFor="let chat of chats | async | filter: buscar" id="ver">
+    <ion-col size="10" *ngIf="chat.user != this.mailLocal" class="message my-message">
+    <span><div class=""><u>{{chat.user}}</u></div>{{chat.message}}
+      <!-- {{localidad}} -->
+    </span>
+      <div class="time ion-text-right"><br>
+        {{chat.created_at | date:'shortTime'}}
+      </div>
+    </ion-col>
+    <ion-col offset="2" size="10" *ngIf="chat.user === this.mailLocal" class="message other-message">
+      <span>{{chat.message}}</span>
+      <div class="time ion-text-right"><br>
+        {{chat.created_at | date:'shortTime'}}
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <!-- <ion-label ></ion-label> -->
+    
+    <ion-input (keyup.enter)="enviarMessage()" type="text" placeholder="mensaje" [(ngModel)]="message"></ion-input>
+    <ion-icon name="send-outline" (click)="enviarMessage()" ></ion-icon>
+  </ion-item>
+</ion-footer>
+

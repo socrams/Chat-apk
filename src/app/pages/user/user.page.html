@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datos de Usuario</ion-title>
+    <ion-button slot="end" (click)="salir()">
+      <ion-icon name='log-out'></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Edad</ion-label>
+      <ion-input [(ngModel)]="edad1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-input type="date"[(ngModel)]="fecha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Localidad</ion-label>
+      <ion-input [(ngModel)]="localidad"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Mail</ion-label>
+      <ion-input [(ngModel)]="mail" [disabled]="true"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button type="button" expand="block" (click)="goChat()" color="secondary"> chat </ion-button>
+  
+  <ion-button type="button" expand="block" (click)="guardarCambios()" color="secondary"> Guardar Cambios </ion-button>
+
+  <!-- <ion-item>
+    <ion-label>Calcular Edad: </ion-label>
+    <ion-input [(ngModel)]="edad1"></ion-input>
+  </ion-item>
+  <ion-button (click)="calcularEdad()">es</ion-button> -->
+</ion-content>
