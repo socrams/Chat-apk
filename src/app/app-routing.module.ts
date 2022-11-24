@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule)
+  },  {
+    path: 'emoticon',
+    loadChildren: () => import('./pages/emoticon/emoticon.module').then( m => m.EmoticonPageModule)
   },
+
 ];
 
 @NgModule({
