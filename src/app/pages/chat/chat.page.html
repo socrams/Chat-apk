@@ -10,9 +10,7 @@
     <small>{{mailLocal}}</small>
   </ion-toolbar>
 </ion-header>
-    <ion-searchbar 
-        placeholder="Filtro" [(ngModel)]="buscar" 
-        showCancelButton="focus" animated>
+    <ion-searchbar animated="true" [(ngModel)]="buscar" placeholder="Buscar"    >
     </ion-searchbar>
 <ion-content class="ion-padding" #mycontent>
      <ion-row  *ngFor="let chat of chats | async | filter: buscar" id="ver">

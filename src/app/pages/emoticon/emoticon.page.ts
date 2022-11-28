@@ -21,6 +21,8 @@ export class EmoticonPage implements OnInit {
    }
 
   ngOnInit() {
+
+  
   }
 
 }
